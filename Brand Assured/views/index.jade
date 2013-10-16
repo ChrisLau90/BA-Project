@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Backbone App
+
+    div#initialContent
+        = appData
+
+    div.app
+
+    script(id="productTemplate", type="text/x-handlebars")
+        <a href="#" class="baid">{{id}}</a>
+
+    script(id="detailedProductTemplate" type="text/x-handlebars")
+        <h2>ProductID: {{id}}</h2>
+        <p>MongoID: {{_id}}</p>
