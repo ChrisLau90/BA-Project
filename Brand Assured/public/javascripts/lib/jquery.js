@@ -123,7 +123,7 @@ jQuery.fn = jQuery.prototype = {
 				if ( match[1] ) {
 					context = context instanceof jQuery ? context[0] : context;
 
-					// scripts is true for back-compat
+					// javascripts is true for back-compat
 					jQuery.merge( this, jQuery.parseHTML(
 						match[1],
 						context && context.nodeType ? context.ownerDocument || context : document,
@@ -471,7 +471,7 @@ jQuery.extend({
 
 	// data: string of html
 	// context (optional): If specified, the fragment will be created in this context, defaults to document
-	// keepScripts (optional): If true, will include scripts passed in the html string
+	// keepScripts (optional): If true, will include javascripts passed in the html string
 	parseHTML: function( data, context, keepScripts ) {
 		if ( !data || typeof data !== "string" ) {
 			return null;
@@ -825,7 +825,7 @@ jQuery.ready.promise = function( obj ) {
 		// we once tried to use readyState "interactive" here, but it caused issues like the one
 		// discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
 		if ( document.readyState === "complete" ) {
-			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			// Handle it asynchronously to allow javascripts the opportunity to delay ready
 			setTimeout( jQuery.ready );
 
 		} else {
@@ -5647,7 +5647,7 @@ jQuery.fn.extend({
 					if ( i !== iNoClone ) {
 						node = jQuery.clone( node, true, true );
 
-						// Keep references to cloned scripts for later restoration
+						// Keep references to cloned javascripts for later restoration
 						if ( hasScripts ) {
 							// Support: QtWebKit
 							// jQuery.merge because core_push.apply(_, arraylike) throws
@@ -5661,10 +5661,10 @@ jQuery.fn.extend({
 				if ( hasScripts ) {
 					doc = scripts[ scripts.length - 1 ].ownerDocument;
 
-					// Reenable scripts
+					// Reenable javascripts
 					jQuery.map( scripts, restoreScript );
 
-					// Evaluate executable scripts on first document insertion
+					// Evaluate executable javascripts on first document insertion
 					for ( i = 0; i < hasScripts; i++ ) {
 						node = scripts[ i ];
 						if ( rscriptType.test( node.type || "" ) &&
@@ -5916,7 +5916,7 @@ function restoreScript( elem ) {
 	return elem;
 }
 
-// Mark scripts as having already been evaluated
+// Mark javascripts as having already been evaluated
 function setGlobalEval( elems, refElements ) {
 	var l = elems.length,
 		i = 0;
@@ -6924,7 +6924,7 @@ jQuery.fn.load = function( url, params, callback ) {
 			self.html( selector ?
 
 				// If a selector was specified, locate the right elements in a dummy div
-				// Exclude scripts to avoid IE 'Permission Denied' errors
+				// Exclude javascripts to avoid IE 'Permission Denied' errors
 				jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
 				// Otherwise use the full result
